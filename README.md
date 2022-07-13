@@ -11,3 +11,4 @@ end, entering your initials to show your initials and score of the quiz.
 ## Mock-up Image
 
 ## Deployed Application URL
+https://dmerk2.github.io/Timed-Multiple-Choice-Quiz/
