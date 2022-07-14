@@ -1,13 +1,12 @@
-// let score = 0;
-// let wins = 0;
+let score = 0;
+let wins = 0;
 const timerEl = document.getElementById('countdown');
 const questionContainerElement = document.getElementById('question-container');
-const questionElement = document.getElementById("question");
-const answerButtonsElement = document.getElementById("answer-buttons")
 const nextButton = document.getElementById("next-btn");
 const startBtn = document.getElementById("start-btn");
 const nextBtn = document.getElementById("next-btn");
-
+const questionElement = document.getElementById("question");
+const answerButtonsElement = document.getElementById("answer-btns")
 let questions = [
   {
     question: "What is an array?",
@@ -54,9 +53,8 @@ function startGame() {
   currentQuestionIndex = 0;
   questionContainerElement.classList.remove('hide');
   countdown();
-  setNextQuestion()
+  // setNextQuestion()
 }
-
 // Timer that counts down from 5
 function countdown() {
   var timeLeft = 5;
@@ -86,59 +84,47 @@ nextButton.addEventListener("click", function () {
   console.log("next")
 })
 
+// function setNextQuestion() {
+//   showQuestion(shuffledQuestions[currentQuestionIndex])
+// }
 
+// function showQuestion (question) {
+//   questionElement.innerText = question.question
+//   question.answers.forEach(function answer() {
+//     const button = document.createElement('button')
+//     button.innerText = answer.text
+//     button.classList.add("btn")
+//     if (answer.correct) {
+//       button.dataset.correct = answer.correct
+//     }
+//     button.addEventListener("click", selectAnswer)
+//     answerButtonsElement.appendChild(button)
+//   });
+// }
 
-function setNextQuestion() {
-  resetState()
-  showQuestion(shuffledQuestions[currentQuestionIndex])
-  console.log("Next")
-}
+// function selectAnswer(e) {
+//   const selectedButton = e.target
+//   const correct = selectedButton.dataset.correct
+//   setStatusClass(document.body, correct)
+//   Array.from(answerButtonsElement.children).forEach(button => {
+//     setStatusClass(button, button.dataset.correct)
+//   })
+//   nextButton.classList.remove('hide')
+// }
 
-function resetState() {
-  nextButton.classList.add('hide')
-  while (answerButtonsElement.firstChild) {
-    answerButtonsElement.removeChild
-    (answerButtonsElement.firstChild)
-  }
-}
+// function setStatusClass(element, correct) {
+//   clearStatusClass(element)
+//   if (correct) {
+//     element.classList.add('correct')
+//   } else {
+//     element.classList.add('wrong')
+//   }
+// }
 
-function showQuestion (question) {
-  questionElement.innerText = question.question
-  question.answers.forEach(function answer() {
-    const button = document.createElement('button')
-    button.innerText = answer.text
-    button.classList.add("btn")
-    if (answer.correct) {
-      button.dataset.correct = answer.correct
-    }
-    button.addEventListener("click", selectAnswer)
-    answerButtonsElement.appendChild(button)
-  });
-}
-
-function selectAnswer(e) {
-  const selectedButton = e.target
-  const correct = selectedButton.dataset.correct
-  setStatusClass(document.body, correct)
-  Array.from(answerButtonsElement.children).forEach(function button() {
-    setStatusClass(button, button.dataset.correct)
-  })
-  nextButton.classList.remove('hide')
-}
-
-function setStatusClass(element, correct) {
-  clearStatusClass(element)
-  if (correct) {
-    element.classList.add('correct')
-  } else {
-    element.classList.add('wrong')
-  }
-}
-
-function clearStatusClass(element) {
-  element.classList.remove('correct')
-  element.classList.remove('wrong')
-}
+// function clearStatusClass(element) {
+//   element.classList.remove('correct')
+//   element.classList.remove('wrong')
+// }
 
 // function winGame() {
 //   wins++
