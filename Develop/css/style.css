@@ -3,9 +3,9 @@
   font-family: cursive, 'Times New Roman', Times, serif;
 }
 
-
-
-/* Header Styles  */
+:root {
+  --box-shadow: 2px 2px 2px 1px #888888;
+}
 
 header {
   display: flex;
@@ -13,6 +13,38 @@ header {
   background-color: lightgrey;
   color: black;
   padding: 3vh;
+  box-shadow: var(--box-shadow);
+}
+
+#leaderboard-link {
+  color: White;
+  background-color: black;
+  padding: 10px;
+  border: black;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+}
+
+#leaderboard-link:hover {
+  opacity: 0.7px;
+  background-color: #888888;
+}
+
+#time {
+  min-width: 85px;
+  color: lightblue;
+  font-weight: bolder;
+}
+
+#timeLeft {
+  color: White;
+  background-color: black;
+  padding: 10px;
+  border: black;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+  font-size: 20px; 
 }
 
 body {
@@ -21,21 +53,27 @@ body {
   margin: 0px;
 }
 
-/* specify min-width for time element to give enough space for the span inside it to contain 3 digits without visibly moving the "time" text */
-
-time {
-  min-width: 85px;
-}
-
-/* Main Styles */
-
 main {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Button Styles */
+.card {
+  max-width: 80%;
+  margin-top: 15vh;
+  border: solid;
+  border-width: 2px;
+  padding: 5vw;
+  border-radius: 30px;
+  border-color: lightgray;
+  box-shadow: var(--box-shadow)
+}
+
+#start-screen {
+  display: inline;
+  text-align: center;
+}
 
 .button {
   display: block;
@@ -44,6 +82,8 @@ main {
   padding: 2vh;
   border-radius: 8px;
   border: none;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
 }
 
 button:hover {
@@ -54,28 +94,6 @@ button:hover {
   display: inline-flex;
 }
 
-/* Card Styles */
-
-.card {
-  max-width: 80%;
-  margin-top: 15vh;
-  border: solid;
-  border-width: 2px;
-  padding: 5vw;
-  border-radius: 30px;
-  border-color: lightgray;
-  box-shadow: 10px 5px 5px lightgray;
-}
-
-/* Start Card Styles */
-
-#start-screen {
-  display: inline;
-  text-align: center;
-}
-
-/* Question Card Styles */
-
 .option-button {
   width: 100%;
   text-align: left;
@@ -85,8 +103,6 @@ button:hover {
 #result-div {
   display: none;
 }
-
-/* Score Card Styles */
 
 .inline-form {
   display: flex;
@@ -100,8 +116,6 @@ button:hover {
   padding: 1vh;
 }
 
-/* Leaderboard Card Styles */
-
 #back-button {
   margin-right: 8px;
 }
@@ -109,8 +123,6 @@ button:hover {
 .highscore-list {
   padding-inline-start: 20px;
 }
-
-/* Media Queries */
 
 @media screen and (min-width: 850px) {
   .card {
