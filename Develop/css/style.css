@@ -3,59 +3,117 @@
   font-family: cursive, 'Times New Roman', Times, serif;
 }
 
-body {
-  background-color: antiquewhite;
+
+
+/* Header Styles  */
+
+header {
   display: flex;
+  justify-content: space-between;
+  background-color: lightgrey;
+  color: black;
+  padding: 3vh;
+}
+
+body {
+  font-family: cursive, 'Times New Roman', Times, serif;
+  background-color: whitesmoke;
+  margin: 0px;
+}
+
+/* specify min-width for time element to give enough space for the span inside it to contain 3 digits without visibly moving the "time" text */
+
+time {
+  min-width: 85px;
+}
+
+/* Main Styles */
+
+main {
+  display: flex;
+  align-items: center;
   justify-content: center;
+}
+
+/* Button Styles */
+
+.button {
+  display: block;
+  color: black;
+  background-color: lightgrey;
+  padding: 2vh;
+  border-radius: 8px;
+  border: none;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+.inline-buttons {
+  display: inline-flex;
+}
+
+/* Card Styles */
+
+.card {
+  max-width: 80%;
+  margin-top: 15vh;
+  border: solid;
+  border-width: 2px;
+  padding: 5vw;
+  border-radius: 30px;
+  border-color: lightgray;
+  box-shadow: 10px 5px 5px lightgray;
+}
+
+/* Start Card Styles */
+
+#start-screen {
+  display: inline;
   text-align: center;
 }
 
-.container {
-  /* display: flex; */
-  width: 600px;
-  max-width:80%;
-  background-color: white;
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: 0 0 10px 2px;
-  justify-content: center;
+/* Question Card Styles */
+
+.option-button {
+  width: 100%;
+  text-align: left;
+  margin: 5px;
 }
 
-.btn-grid {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  padding: 15px;
-  gap: 15px;
-  margin: 20px 0;
-}
-
-.btn {
-  border: 1px solid black;
-  background-color: antiquewhite;
-  border-radius: 5px;
-  padding: 10px 10px;
-  color: black;
-  outline: none;
-}
-
-.btn:hover {
-  opacity: 0.7;
-  box-shadow: 0 0 2px 1px;;
-}
-
-.start-btn, .next-btn {
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 10px 20px;
-  margin-right: 10px;
-}
-
-.controls {
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
-}
-
-.hide {
+#result-div {
   display: none;
+}
+
+/* Score Card Styles */
+
+.inline-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#initials {
+  width: 25%;
+  margin: 8px;
+  padding: 1vh;
+}
+
+/* Leaderboard Card Styles */
+
+#back-button {
+  margin-right: 8px;
+}
+
+.highscore-list {
+  padding-inline-start: 20px;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 850px) {
+  .card {
+    max-width: 680px;
+  }
 }
