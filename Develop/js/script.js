@@ -39,7 +39,7 @@ var questions = [
   {
     questionText: "Arrays in Javascript can be used to store __________.",
     options: ["1. numbers", "2. booleans", "3. strings", "4. all of the above"],
-    answer: "4. all of the above",
+    answer: "4. all of the above", 
   },
 ];
 
