@@ -1,7 +1,7 @@
 //Questions, options and answers are stored in an array
-var questions = [
+let questions = [
   {
-    questionText: "Where does your JavaScript get embedded inside of your HTML file?",
+    questionText: "Where do you place an external JavaScript file?",
     options: [
       "1. <h1>",
       "2. <js>",
@@ -39,15 +39,20 @@ var questions = [
   {
     questionText: "Arrays in Javascript can be used to store __________.",
     options: ["1. numbers", "2. booleans", "3. strings", "4. all of the above"],
-    answer: "4. all of the above", 
+    answer: "4. all of the above",
+  },
+  {
+    questionText: "Question",
+    options: ["1. numbers", "2. booleans", "3. strings", "4. all of the above"],
+    answer: "4. all of the above",
   },
 ];
 
 //Select each card div by id and assign to variables
-var startCard = document.querySelector("#start-card");
-var questionCard = document.querySelector("#question-card");
-var scoreCard = document.querySelector("#score-card");
-var leaderboardCard = document.querySelector("#leaderboard-card");
+const startCard = document.querySelector("#start-card");
+const questionCard = document.querySelector("#question-card");
+const scoreCard = document.querySelector("#score-card");
+const leaderboardCard = document.querySelector("#leaderboard-card");
 
 //Hide cards
 function hideCards() {
@@ -57,8 +62,8 @@ function hideCards() {
   leaderboardCard.setAttribute("hidden", true);
 }
 
-var resultDiv = document.querySelector("#result-div");
-var resultText = document.querySelector("#result-text");
+const resultDiv = document.querySelector("#result-div");
+const resultText = document.querySelector("#result-text");
 
 //Hide result div
 function hideResultText() {
@@ -66,9 +71,9 @@ function hideResultText() {
 }
 
 //Set variables
-var intervalID;
-var time;
-var currentQuestion;
+let intervalID;
+let time;
+let currentQuestion;
 
 document.querySelector("#start-button").addEventListener("click", startQuiz);
 
@@ -101,22 +106,22 @@ function countdown() {
 }
 
 //Display time on page
-var timeDisplay = document.querySelector("#time");
+const timeDisplay = document.querySelector("#time");
 function displayTime() {
   timeDisplay.textContent = time;
 }
 
 //Display the question and answer options for the current question
 function displayQuestion() {
-  var question = questions[currentQuestion];
-  var options = question.options;
+  let question = questions[currentQuestion];
+  let options = question.options;
 
-  var h2QuestionElement = document.querySelector("#question-text");
+  let h2QuestionElement = document.querySelector("#question-text");
   h2QuestionElement.textContent = question.questionText;
 
-  for (var i = 0; i < options.length; i++) {
-    var option = options[i];
-    var optionButton = document.querySelector("#option" + i);
+  for (let i = 0; i < options.length; i++) {
+    let option = options[i];
+    let optionButton = document.querySelector("#option" + i);
     optionButton.textContent = option;
   }
 }
@@ -132,7 +137,7 @@ function optionIsCorrect(optionButton) {
 
 //If answer is incorrect, deduct time
 function checkAnswer(eventObject) {
-  var optionButton = eventObject.target;
+  let optionButton = eventObject.target;
   resultDiv.style.display = "block";
   if (optionIsCorrect(optionButton)) {
     resultText.textContent = "Correct!";
@@ -163,7 +168,7 @@ function checkAnswer(eventObject) {
 }
 
 //Display scorecard and hide other divs
-var score = document.querySelector("#score");
+let score = document.querySelector("#score");
 
 //At end of quiz, clear the timer, hide any visible cards and display the scorecard and display the score as the remaining time
 function endQuiz() {
@@ -173,8 +178,8 @@ function endQuiz() {
   score.textContent = time;
 }
 
-var submitButton = document.querySelector("#submit-button");
-var inputElement = document.querySelector("#initials");
+const submitButton = document.querySelector("#submit-button");
+const inputElement = document.querySelector("#initials");
 
 //Store user initials and score when submit button is clicked
 submitButton.addEventListener("click", storeScore);
@@ -190,7 +195,7 @@ function storeScore(event) {
   }
 
   //Store score and initials in an object
-  var leaderboardItem = {
+  let leaderboardItem = {
     initials: inputElement.value,
     score: time,
   };
@@ -206,7 +211,7 @@ function storeScore(event) {
 
 //Updates the leaderboard stored in local storage
 function updateStoredLeaderboard(leaderboardItem) {
-  var leaderboardArray = getLeaderboard();
+  let leaderboardArray = getLeaderboard();
   //append new leaderboard item to leaderboard array
   leaderboardArray.push(leaderboardItem);
   localStorage.setItem("leaderboardArray", JSON.stringify(leaderboardArray));
@@ -214,7 +219,7 @@ function updateStoredLeaderboard(leaderboardItem) {
 
 //Get "leaderboardArray" from local storage (if it exists) and parse it into a javascript object using JSON.parse
 function getLeaderboard() {
-  var storedLeaderboard = localStorage.getItem("leaderboardArray");
+  let storedLeaderboard = localStorage.getItem("leaderboardArray");
   if (storedLeaderboard !== null) {
     var leaderboardArray = JSON.parse(storedLeaderboard);
     return leaderboardArray;

@@ -80,11 +80,11 @@ main {
   display: block;
   color: black;
   background-color: lightgrey;
+  padding: 2vh;
   border-radius: 8px;
   border: none;
   box-shadow: var(--box-shadow);
   cursor: pointer;
-  padding: 2rem 0;
 }
 
 button:hover {
