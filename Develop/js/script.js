@@ -42,7 +42,7 @@ let questions = [
     answer: "4. all of the above",
   },
   {
-    questionText: "Question",
+    questionText: "asdfi;q ejdr;fgioacehsd gzvkhj__.",
     options: ["1. numbers", "2. booleans", "3. strings", "4. all of the above"],
     answer: "4. all of the above",
   },
@@ -62,8 +62,8 @@ function hideCards() {
   leaderboardCard.setAttribute("hidden", true);
 }
 
-const resultDiv = document.querySelector("#result-div");
-const resultText = document.querySelector("#result-text");
+var resultDiv = document.querySelector("#result-div");
+var resultText = document.querySelector("#result-text");
 
 //Hide result div
 function hideResultText() {
@@ -71,9 +71,9 @@ function hideResultText() {
 }
 
 //Set variables
-let intervalID;
-let time;
-let currentQuestion;
+var intervalID;
+var time;
+var currentQuestion;
 
 document.querySelector("#start-button").addEventListener("click", startQuiz);
 
@@ -87,7 +87,7 @@ function startQuiz() {
   displayQuestion();
 
   //Set total time depending on number of questions
-  time = questions.length * 5;
+  time = questions.length * 10;
 
   //Executes function "countdown" every 1000ms to update time and display on page
   intervalID = setInterval(countdown, 1000);
@@ -106,22 +106,22 @@ function countdown() {
 }
 
 //Display time on page
-const timeDisplay = document.querySelector("#time");
+var timeDisplay = document.querySelector("#time");
 function displayTime() {
   timeDisplay.textContent = time;
 }
 
 //Display the question and answer options for the current question
 function displayQuestion() {
-  let question = questions[currentQuestion];
-  let options = question.options;
+  var question = questions[currentQuestion];
+  var options = question.options;
 
-  let h2QuestionElement = document.querySelector("#question-text");
+  var h2QuestionElement = document.querySelector("#question-text");
   h2QuestionElement.textContent = question.questionText;
 
-  for (let i = 0; i < options.length; i++) {
-    let option = options[i];
-    let optionButton = document.querySelector("#option" + i);
+  for (var i = 0; i < options.length; i++) {
+    var option = options[i];
+    var optionButton = document.querySelector("#option" + i);
     optionButton.textContent = option;
   }
 }
@@ -137,7 +137,7 @@ function optionIsCorrect(optionButton) {
 
 //If answer is incorrect, deduct time
 function checkAnswer(eventObject) {
-  let optionButton = eventObject.target;
+  var optionButton = eventObject.target;
   resultDiv.style.display = "block";
   if (optionIsCorrect(optionButton)) {
     resultText.textContent = "Correct!";
@@ -168,7 +168,7 @@ function checkAnswer(eventObject) {
 }
 
 //Display scorecard and hide other divs
-let score = document.querySelector("#score");
+var score = document.querySelector("#score");
 
 //At end of quiz, clear the timer, hide any visible cards and display the scorecard and display the score as the remaining time
 function endQuiz() {
@@ -178,8 +178,8 @@ function endQuiz() {
   score.textContent = time;
 }
 
-const submitButton = document.querySelector("#submit-button");
-const inputElement = document.querySelector("#initials");
+var submitButton = document.querySelector("#submit-button");
+var inputElement = document.querySelector("#initials");
 
 //Store user initials and score when submit button is clicked
 submitButton.addEventListener("click", storeScore);
@@ -195,7 +195,7 @@ function storeScore(event) {
   }
 
   //Store score and initials in an object
-  let leaderboardItem = {
+  var leaderboardItem = {
     initials: inputElement.value,
     score: time,
   };
@@ -211,7 +211,7 @@ function storeScore(event) {
 
 //Updates the leaderboard stored in local storage
 function updateStoredLeaderboard(leaderboardItem) {
-  let leaderboardArray = getLeaderboard();
+  var leaderboardArray = getLeaderboard();
   //append new leaderboard item to leaderboard array
   leaderboardArray.push(leaderboardItem);
   localStorage.setItem("leaderboardArray", JSON.stringify(leaderboardArray));
@@ -219,7 +219,7 @@ function updateStoredLeaderboard(leaderboardItem) {
 
 //Get "leaderboardArray" from local storage (if it exists) and parse it into a javascript object using JSON.parse
 function getLeaderboard() {
-  let storedLeaderboard = localStorage.getItem("leaderboardArray");
+  var storedLeaderboard = localStorage.getItem("leaderboardArray");
   if (storedLeaderboard !== null) {
     var leaderboardArray = JSON.parse(storedLeaderboard);
     return leaderboardArray;
