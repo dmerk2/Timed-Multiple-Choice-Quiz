@@ -41,11 +41,7 @@ let questions = [
     options: ["1. numbers", "2. booleans", "3. strings", "4. all of the above"],
     answer: "4. all of the above",
   },
-  {
-    questionText: "asdfi;q ejdr;fgioacehsd gzvkhj__.",
-    options: ["1. numbers", "2. booleans", "3. strings", "4. all of the above"],
-    answer: "4. all of the above",
-  },
+  
 ];
 
 //Select each card div by id and assign to variables
@@ -87,7 +83,7 @@ function startQuiz() {
   displayQuestion();
 
   //Set total time depending on number of questions
-  time = questions.length * 10;
+  time = questions.length * 8;
 
   //Executes function "countdown" every 1000ms to update time and display on page
   intervalID = setInterval(countdown, 1000);
