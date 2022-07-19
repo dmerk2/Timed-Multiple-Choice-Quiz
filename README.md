@@ -9,6 +9,7 @@ when the timer hits 0 or the user answers all the questions first. At the
 end, entering your initials to show your initials and score of the quiz.
 
 ## Mock-up Image
+<img src="./Assets/screenshot.png">
 
 ## Deployed Application URL
 https://dmerk2.github.io/Timed-Multiple-Choice-Quiz/
